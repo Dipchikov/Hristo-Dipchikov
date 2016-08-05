@@ -162,7 +162,7 @@
   </div>
  <div id="footer">
     <footer>
-      <p class="copy"><a href="admin.php" title="admin">©&nbsp;|&nbsp;<a href="../" title="Фотография от  Христо Дипчиков">Hristo Dipchikov</a> &nbsp;|&nbsp; <a href="https://www.facebook.com/pages/Hristo-Dipchikov-Photography/625179854264944?fref=ts" target="_blank">Follow me on Facebook</a></p>
+      <p class="copy"><a href="admin" title="admin">©&nbsp;|&nbsp;<a href="../" title="Фотография от  Христо Дипчиков">Hristo Dipchikov</a> &nbsp;|&nbsp; <a href="https://www.facebook.com/pages/Hristo-Dipchikov-Photography/625179854264944?fref=ts" target="_blank">Follow me on Facebook</a></p>
       <div id="info">
         <div id="gallery-bottom-actions">
           <div class="gallery-fullsreen"> <span class="gallery-fullsreen-icon"></span> <span class="gallery-fullsreen-text">Fullscreen</span> </div>
@@ -189,20 +189,34 @@
 </div>
 <!-- end:div#page --> 
 
+<script>
+ var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+  if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+  function mischandler(){
+   return false;
+ }
+  function mousehandler(e){
+     var myevent = (isNS) ? e : event;
+     var eventbutton = (isNS) ? myevent.which : myevent.button;
+    if((eventbutton==2)||(eventbutton==3)) return false;
+ }
+ document.oncontextmenu = mischandler;
+ document.onmousedown = mousehandler;
+ document.onmouseup = mousehandler;
+  </script>
+  <script type="text/JavaScript">
+//courtesy of BoogieJack.com
+function killCopy(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=killCopy
+document.onclick=reEnable
+}
 
-<script type="text/javascript">
-		
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-46093592-1']);
-		  _gaq.push(['_trackPageview']);
-		  _gaq.push(['_gat._anonymizeIp']);
-		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		
-		</script>
 </body>
 </html>

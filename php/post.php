@@ -54,4 +54,33 @@
 	<div class="share_wrap">
 	<?php Theme::plugins('postEnd') ?>
 </div>
+<script>
+ var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+  if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+  function mischandler(){
+   return false;
+ }
+  function mousehandler(e){
+     var myevent = (isNS) ? e : event;
+     var eventbutton = (isNS) ? myevent.which : myevent.button;
+    if((eventbutton==2)||(eventbutton==3)) return false;
+ }
+ document.oncontextmenu = mischandler;
+ document.onmousedown = mousehandler;
+ document.onmouseup = mousehandler;
+  </script>
+  <script type="text/JavaScript">
+//courtesy of BoogieJack.com
+function killCopy(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=killCopy
+document.onclick=reEnable
+}
+</script>
 </article>
